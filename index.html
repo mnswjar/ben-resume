@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume - Benjawan Noinak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-base: #f9f7f3;
+        --primary-green: #588157;
+        --secondary-green: #a3b18a;
+        --gold-color: #b89b72; /* Gold color for borders */
+        --gold-bg-color: #fdf8f0; /* Light Gold Background */
+        --text-dark: #3a3a3a;
+        --text-light: #575757;
+      }
+      /* Universal Box Sizing */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      /* General and Reset Styles */
+      body {
+        font-family: "Sarabun", sans-serif;
+        background-color: #e9e9e9;
+        color: var(--text-dark);
+        font-size: 13.5px; /* Slightly reduced base font size */
+        line-height: 1.5; /* Adjusted line height */
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-position: outside;
+        padding-left: 1rem;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Layout Styles */
+      .a4-container {
+        width: 21cm;
+        height: 29.7cm; /* Fixed A4 height */
+        margin: 2rem auto;
+        background: white;
+        display: flex;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Hide overflow */
+      }
+      .left-column {
+        width: 35%;
+        background-color: var(--bg-base);
+        padding: 1.25rem 1.25rem;
+      }
+      .right-column {
+        width: 65%;
+        background-color: white;
+        padding: 1.25rem 1.25rem;
+      }
+
+      /* Component Styles */
+      .profile-section {
+        text-align: center;
+        margin-bottom: 1.25rem;
+      }
+      .profile-image {
+        width: 7rem;
+        height: 9rem;
+        border-radius: 9999px; /* Oval shape */
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: cover;
+        object-position: center;
+        border: 4px solid var(--bg-base);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin-bottom: 0.5rem;
+      }
+      .profile-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-green);
+      }
+      .profile-nickname {
+        font-size: 0.85rem;
+        color: var(--text-light);
+      }
+      .profile-title {
+        font-size: 0.95rem;
+        margin-top: 0.1rem;
+        color: var(--text-dark);
+      }
+
+      .section {
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        color: var(--primary-green);
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+        padding-bottom: 3px;
+      }
+
+      .left-column .section-title {
+        border-bottom: 1px solid var(--secondary-green);
+      }
+
+      .right-column .section-title {
+        background-color: var(--gold-bg-color);
+        border-radius: 0.25rem;
+        padding: 0.2rem 0.6rem;
+        display: block;
+        text-align: left;
+        border-bottom: none; /* Remove the underline */
+      }
+
+      .contact-info {
+        font-size: 0.75rem;
+        color: var(--text-light);
+      }
+      .contact-info p {
+        margin-bottom: 0.1rem;
+      }
+
+      .skills-heading {
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+        color: var(--primary-green);
+      }
+      .skills-heading.soft {
+        margin-top: 0.6rem;
+      }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding-left: 0;
+      }
+      .skills-list li {
+        list-style: none;
+        background-color: #e3eadf;
+        color: var(--primary-green);
+        padding: 2px 8px;
+        border-radius: 9999px;
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+
+      .languages-info {
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+      .languages-info p {
+        margin-bottom: 0.1rem;
+      }
+
+      .education-info {
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+      .education-info .university {
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+
+      .about-me p {
+        line-height: 1.5;
+        font-size: 0.85rem;
+        color: var(--text-light);
+      }
+
+      .experience-section .job-entry {
+        margin-bottom: 0.75rem;
+      }
+      .experience-section .job-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      .experience-section .company-info {
+        color: var(--primary-green);
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+      .experience-section .date {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+      .experience-section ul {
+        margin-top: 0.1rem;
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+      .experience-section ul li {
+        margin-bottom: 0.1rem;
+      }
+
+      /* Print-specific styles */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        body {
+          background-color: #fff;
+          font-size: 9.5pt;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .a4-container {
+          margin: 0;
+          padding: 1cm;
+          box-shadow: none;
+          height: 100%;
+          width: 100%;
+        }
+        .skills-list li {
+          font-size: 7pt;
+          background-color: #e3eadf !important; /* Ensure background prints */
+        }
+        .left-column {
+          background-color: var(--bg-base) !important;
+        }
+        .right-column .section-title {
+          border: none !important;
+          background-color: var(
+            --gold-bg-color
+          ) !important; /* Ensure background prints */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a4-container">
+      <!-- Left Column -->
+      <aside class="left-column">
+        <div class="profile-section">
+          <a href="https://freeimage.host/i/FD2FU1S" target="_blank">
+            <img
+              src="https://iili.io/FD2FU1S.jpg"
+              alt="Benjawan Noinak Profile Picture"
+              class="profile-image"
+            />
+          </a>
+          <h1 class="profile-name">Benjawan Noinak</h1>
+          <p class="profile-nickname">(Ben)</p>
+          <p class="profile-title">Commis Pastry</p>
+        </div>
+
+        <section class="section">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-info">
+            <p><strong>Phone:</strong> (083) 197-8282</p>
+            <p><strong>Email:</strong> benjawan.noinak@gmail.com</p>
+            <p><strong>Address:</strong> Bangmod, Jomthong, Bangkok, 10150</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Skills</h2>
+          <h3 class="skills-heading">Pastry & Bakery</h3>
+          <ul class="skills-list">
+            <li>Cake Production</li>
+            <li>Macarons & Choux</li>
+            <li>Dessert Decoration</li>
+            <li>Bread Shaping</li>
+            <li>Inventory Management</li>
+          </ul>
+          <h3 class="skills-heading soft">Soft Skills</h3>
+          <ul class="skills-list">
+            <li>Leadership</li>
+            <li>Problem-Solving</li>
+            <li>Teamwork</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Languages</h2>
+          <div class="languages-info">
+            <p><strong>Thai:</strong> Native</p>
+            <p><strong>English:</strong> Fair Communication</p>
+            <p><strong>Japanese:</strong> JLPT N4</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="education-info">
+            <p class="university">Kasetsart University</p>
+            <p>Bachelor of Science</p>
+            <p>(Environmental Science)</p>
+            <p>2015 - 2019</p>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Right Column -->
+      <main class="right-column">
+        <section class="section about-me">
+          <h2 class="section-title">About Me</h2>
+          <p>
+            A responsible and hardworking professional with a genuine passion
+            for the bakery and pastry arts. Seeking to leverage over 5 years of
+            diverse experience in high-volume kitchens and renowned bakeries to
+            contribute effectively to a new role. Confident in applying both
+            technical skills and creativity to create high-quality products and
+            enhance team success.
+          </p>
+        </section>
+
+        <section class="section experience-section">
+          <h2 class="section-title">Work Experience</h2>
+          <div class="job-entry">
+            <p class="job-title">Commis III Pastry</p>
+            <p class="company-info">
+              Shangri-La Hotel, Bangkok |
+              <span class="date">Oct 2022 - Present</span>
+            </p>
+            <ul>
+              <li>
+                Prepare and produce a wide variety of high-quality cakes,
+                desserts, macarons, choux, and assorted verrines.
+              </li>
+              <li>
+                Expertly decorate desserts to meet five-star presentation
+                standards.
+              </li>
+              <li>
+                Manage the bakery station for the dinner buffet restaurant.
+              </li>
+              <li>
+                Oversee the proper storage and inventory management of raw
+                materials.
+              </li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <p class="job-title">Casual Baker</p>
+            <p class="company-info">
+              Shangri-La Hotel, Bangkok |
+              <span class="date">Jul 2022 - Sep 2022</span>
+            </p>
+            <ul>
+              <li>
+                Operated the live bakery station during breakfast service.
+              </li>
+              <li>Prepared and portioned bread and pastries for service.</li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <p class="job-title">Management Trainee</p>
+            <p class="company-info">
+              Momo Paradise | <span class="date">Oct 2021 - Feb 2022</span>
+            </p>
+            <ul>
+              <li>
+                Supervised front-of-house staff to ensure excellent service.
+              </li>
+              <li>Managed inventory, forecasting needs, and placing orders.</li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <p class="job-title">Baker</p>
+            <p class="company-info">
+              BreadTalk | <span class="date">Jul 2019 - Jun 2020</span>
+            </p>
+            <ul>
+              <li>
+                Executed the full baking process for a variety of breads,
+                muffins, and cheesecakes.
+              </li>
+              <li>
+                Decorated a wide range of breads and doughnuts with consistent
+                quality.
+              </li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <p class="job-title">Part-Time Crew Member</p>
+            <p class="company-info">
+              Cold Stone Creamery |
+              <span class="date">Aug 2016 - Feb 2018</span>
+            </p>
+            <ul>
+              <li>
+                Created custom-made ice cream orders and drinks for customers.
+              </li>
+              <li>Handled cash and credit transactions accurately.</li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <p class="job-title">Part-Time Crew Member</p>
+            <p class="company-info">
+              Gateaux House | <span class="date">Apr 2015 - Jun 2015</span>
+            </p>
+            <ul>
+              <li>
+                Assisted with cake decoration, beverage preparation, and cashier
+                duties.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
